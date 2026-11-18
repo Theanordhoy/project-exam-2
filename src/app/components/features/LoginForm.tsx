@@ -91,7 +91,7 @@ export function LoginForm() {
           type="submit"
           disabled={isLoading}
           aria-busy={isLoading}
-          className="inline-flex w-full justify-center items-center bg-primary text-lg gap-1 font-semibold shadow-md mt-2 text-white py-2.5 rounded-md"
+          className="inline-flex w-full cursor-pointer hover:bg-primary-hover justify-center items-center bg-primary text-lg gap-1 font-semibold shadow-md mt-2 text-white py-2.5 rounded-md"
         >
           {isLoading ? "Logging in..." : "Login"}
           <LogIn size={18} aria-hidden="true" className="shrink-0" />

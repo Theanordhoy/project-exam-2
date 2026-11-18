@@ -141,7 +141,7 @@ export function RegisterForm() {
           type="submit"
           disabled={isLoading}
           aria-busy={isLoading}
-          className="inline-flex w-full justify-center bg-primary text-lg font-semibold shadow-md mt-2 text-white py-2.5 rounded-md"
+          className="inline-flex w-full justify-center cursor-pointer hover:bg-primary-hover bg-primary text-lg font-semibold shadow-md mt-2 text-white py-2.5 rounded-md"
         >
           {isLoading ? "Signing up..." : "Sign up"}
         </button>
