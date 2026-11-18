@@ -36,7 +36,7 @@ export function AccountTypeSelector({
           />
           <label
             htmlFor="customer"
-            className="flex w-full cursor-pointer items-center justify-center peer-checked:bg-sage peer-checked:border-primary peer-checked:text-primary peer-checked:font-bold peer-checked:inset-shadow-sm shadow-md border border-border rounded-lg text-lg py-2 px-5 bg-white"
+            className="flex w-full cursor-pointer items-center justify-center peer-checked:bg-sage peer-checked:border-primary peer-checked:text-primary peer-checked:font-bold peer-checked:inset-shadow-sm peer-focus-visible:ring-1 peer-focus-visible:ring-primary shadow-md border border-border rounded-lg text-lg py-2 px-5 bg-white"
           >
             <User className="shrink-0 mr-2" size={20} aria-hidden="true" />
             Customer
@@ -53,7 +53,7 @@ export function AccountTypeSelector({
           />
           <label
             htmlFor="venueManager"
-            className="flex w-full cursor-pointer items-center justify-center peer-checked:bg-sage peer-checked:border-primary peer-checked:text-primary peer-checked:font-bold peer-checked:inset-shadow-sm shadow-md border border-border rounded-lg text-lg py-2 px-5 bg-white"
+            className="flex w-full cursor-pointer items-center justify-center peer-checked:bg-sage peer-checked:border-primary peer-checked:text-primary peer-checked:font-bold peer-checked:inset-shadow-sm peer-focus-visible:ring-1 peer-focus-visible:ring-primary shadow-md border border-border rounded-lg text-lg py-2 px-5 bg-white"
           >
             <House className="shrink-0 mr-2" size={20} aria-hidden="true" />
             Venue Manager
