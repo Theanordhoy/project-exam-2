@@ -27,3 +27,14 @@ export async function deleteSession() {
   cookieStore.delete(COOKIE_ACCESS_TOKEN);
   cookieStore.delete(COOKIE_PROFILE);
 }
+
+export async function getProfile(): Promise<SessionProfile | null> {
+  const cookieStore = await cookies();
+  const profileCookie = cookieStore.get(COOKIE_PROFILE);
+  if (!profileCookie) return null;
+  try {
+    return JSON.parse(profileCookie.value) as SessionProfile;
+  } catch {
+    return null;
+  }
+}

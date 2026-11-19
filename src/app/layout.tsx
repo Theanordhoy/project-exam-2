@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Lato, Poppins } from "next/font/google";
 import "./globals.css";
+import { Header } from "@/app/components/layout/Header";
 
 const lato = Lato({
   variable: "--font-inter",
@@ -25,7 +26,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${lato.variable} ${poppins.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
