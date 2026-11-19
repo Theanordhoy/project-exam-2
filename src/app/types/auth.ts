@@ -40,3 +40,8 @@ export interface RegisterResponse {
   };
   venueManager: boolean;
 }
+
+export interface SessionProfile {
+  name: string;
+  venueManager: boolean;
+}
