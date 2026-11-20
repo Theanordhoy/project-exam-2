@@ -8,7 +8,7 @@ export default function AlternativeAuth({ mode }: AlternativeAuthProps) {
   const isLogin = mode === "login";
 
   return (
-    <p className="text-end text-sm">
+    <p className="sm:text-end text-sm ">
       {isLogin ? "Don't have an account yet?" : "Already have an account?"}{" "}
       <Link
         href={isLogin ? "/register" : "/login"}
