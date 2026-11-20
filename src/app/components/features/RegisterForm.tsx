@@ -78,7 +78,7 @@ export function RegisterForm() {
       <form
         onSubmit={handleSubmit}
         noValidate
-        className="flex flex-col gap-4 bg-white p-10 rounded-lg mx-auto w-full max-w-132.5 shadow-md"
+        className="flex flex-col mt-12 gap-4 bg-white p-10 rounded-lg mx-auto w-full max-w-132.5 shadow-md"
       >
         <h1 className="text-3xl font-semibold text-primary mx-auto mb-4">
           Create an account
