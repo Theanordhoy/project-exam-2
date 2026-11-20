@@ -49,7 +49,7 @@ export function LoginForm() {
       <form
         onSubmit={handleSubmit}
         noValidate
-        className="flex flex-col mt-12 gap-4 w-full bg-white p-10 rounded-lg mx-auto max-w-132.5 shadow-md"
+        className="flex flex-col my-12 gap-4 w-full bg-white p-10 rounded-lg mx-auto max-w-132.5 shadow-md"
       >
         <h1 className="text-3xl font-semibold text-primary mx-auto mb-4">
           Welcome back!
