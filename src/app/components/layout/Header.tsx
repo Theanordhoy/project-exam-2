@@ -13,18 +13,31 @@ export async function Header() {
           Holidaze
         </Link>
       </div>
-      <nav className="hidden sm:flex gap-6 items-center text-lg sm:text-xl font-normal font-heading">
-        <Link href="/">Venues</Link>
-        {isLoggedIn && <Link href="/profile">Profile</Link>}
-        {!isLoggedIn ? (
-          <Link href="/login">Login</Link>
-        ) : (
-          <form action={logout}>
-            <button type="submit" className="cursor-pointer">
-              Log out
-            </button>
-          </form>
-        )}
+      <nav
+        aria-label="Main"
+        className="hidden sm:flex text-lg sm:text-xl font-normal font-heading"
+      >
+        <ul className="gap-6 items-center flex">
+          <li>
+            <Link href="/">Venues</Link>
+          </li>
+          {isLoggedIn && (
+            <li>
+              <Link href="/profile">Profile</Link>
+            </li>
+          )}
+          <li>
+            {!isLoggedIn ? (
+              <Link href="/login">Login</Link>
+            ) : (
+              <form action={logout}>
+                <button type="submit" className="cursor-pointer">
+                  Log out
+                </button>
+              </form>
+            )}
+          </li>
+        </ul>
       </nav>
       <MobileMenu isLoggedIn={isLoggedIn} />
     </header>

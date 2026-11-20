@@ -22,33 +22,42 @@ export function MobileMenu({ isLoggedIn }: Props) {
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
       <nav
-        className={`z-50 bg-primary absolute left-0 right-0 top-full flex-col gap-4 items-center text-lg font-normal font-heading p-4 ${
+        aria-label="Main"
+        className={`z-50 bg-primary absolute left-0 right-0 top-full text-lg font-normal font-heading p-4 ${
           isOpen ? "flex" : "hidden"
         }`}
       >
-        <Link href="/venues" onClick={() => setIsOpen(false)}>
-          Venues
-        </Link>
-        {isLoggedIn && (
-          <Link href="/profile" onClick={() => setIsOpen(false)}>
-            Profile
-          </Link>
-        )}
-        {!isLoggedIn ? (
-          <Link href="/login" onClick={() => setIsOpen(false)}>
-            Login
-          </Link>
-        ) : (
-          <form action={logout}>
-            <button
-              type="submit"
-              onClick={() => setIsOpen(false)}
-              className="cursor-pointer"
-            >
-              Log out
-            </button>
-          </form>
-        )}
+        <ul className="flex-col gap-4 items-center flex w-full">
+          <li>
+            <Link href="/" onClick={() => setIsOpen(false)}>
+              Venues
+            </Link>
+          </li>
+          {isLoggedIn && (
+            <li>
+              <Link href="/profile" onClick={() => setIsOpen(false)}>
+                Profile
+              </Link>
+            </li>
+          )}
+          <li>
+            {!isLoggedIn ? (
+              <Link href="/login" onClick={() => setIsOpen(false)}>
+                Login
+              </Link>
+            ) : (
+              <form action={logout}>
+                <button
+                  type="submit"
+                  onClick={() => setIsOpen(false)}
+                  className="cursor-pointer"
+                >
+                  Log out
+                </button>
+              </form>
+            )}
+          </li>
+        </ul>
       </nav>
     </div>
   );
