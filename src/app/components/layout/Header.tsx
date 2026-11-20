@@ -14,7 +14,7 @@ export async function Header() {
         </Link>
       </div>
       <nav className="hidden md:flex gap-6 items-center text-lg font-normal font-heading">
-        <Link href="/venues">Venues</Link>
+        <Link href="/">Venues</Link>
         {isLoggedIn && <Link href="/profile">Profile</Link>}
         {!isLoggedIn ? (
           <Link href="/login">Login</Link>
