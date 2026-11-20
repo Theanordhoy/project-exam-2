@@ -7,13 +7,13 @@ export async function Header() {
   const profile = await getProfile();
   const isLoggedIn = !!profile;
   return (
-    <header className="relative bg-linear-to-b from-forest-700 flex to-forest-900 text-white  items-center justify-between px-4 py-3">
+    <header className="relative bg-linear-to-b from-forest-700 flex to-forest-900 text-white  items-center justify-between px-4 sm:px-8 py-3">
       <div>
         <Link href="/" className="text-3xl font-bold">
           Holidaze
         </Link>
       </div>
-      <nav className="hidden md:flex gap-6 items-center text-lg font-normal font-heading">
+      <nav className="hidden sm:flex gap-6 items-center text-lg sm:text-xl font-normal font-heading">
         <Link href="/">Venues</Link>
         {isLoggedIn && <Link href="/profile">Profile</Link>}
         {!isLoggedIn ? (

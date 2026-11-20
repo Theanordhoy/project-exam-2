@@ -12,7 +12,7 @@ type Props = {
 export function MobileMenu({ isLoggedIn }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="md:hidden">
+    <div className="sm:hidden">
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
