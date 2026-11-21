@@ -12,7 +12,7 @@ export default function AlternativeAuth({ mode }: AlternativeAuthProps) {
       {isLogin ? "Don't have an account yet?" : "Already have an account?"}{" "}
       <Link
         href={isLogin ? "/register" : "/login"}
-        className="text-primary font-bold underline"
+        className="text-primary font-bold hover:underline"
       >
         {isLogin ? "Sign up here!" : "Log in here!"}
       </Link>
