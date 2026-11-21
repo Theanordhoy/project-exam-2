@@ -19,19 +19,28 @@ export async function Header() {
       >
         <ul className="gap-6 items-center flex">
           <li>
-            <Link href="/">Venues</Link>
+            <Link href="/" className="hover:text-accent-hover ">
+              Venues
+            </Link>
           </li>
           {isLoggedIn && (
             <li>
-              <Link href="/profile">Profile</Link>
+              <Link href="/profile" className="hover:text-accent-hover ">
+                Profile
+              </Link>
             </li>
           )}
           <li>
             {!isLoggedIn ? (
-              <Link href="/login">Login</Link>
+              <Link href="/login" className="hover:text-accent-hover ">
+                Login
+              </Link>
             ) : (
               <form action={logout}>
-                <button type="submit" className="cursor-pointer">
+                <button
+                  type="submit"
+                  className="cursor-pointer hover:text-accent-hover"
+                >
                   Log out
                 </button>
               </form>
