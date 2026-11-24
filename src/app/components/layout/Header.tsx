@@ -7,7 +7,7 @@ export async function Header() {
   const profile = await getProfile();
   const isLoggedIn = !!profile;
   return (
-    <header className="relative bg-linear-to-b from-forest-700 flex to-forest-900 text-white  items-center justify-between px-4 sm:px-8 py-3">
+    <header className="relative bg-linear-to-b from-forest-700 flex to-forest-900 text-white  items-center justify-between px-4 sm:px-8 py-6.5">
       <div>
         <Link href="/" className="text-3xl font-bold">
           Holidaze
