@@ -16,13 +16,19 @@ export default async function Venues({ searchParams }: Props) {
     : venues;
 
   return (
-    <div className="px-4">
-      <h1>Find your next stay</h1>
-      <VenueSearchBar />
+    <div>
+      <section className="bg-white px-4 sm:px-8 py-10">
+        <div className="max-w-5xl mx-auto">
+          <h1 className="text-primary text-4xl font-semibold mb-5">
+            Find your next stay
+          </h1>
+          <VenueSearchBar />
+        </div>
+      </section>
       {filteredVenues.length === 0 ? (
         <p>No venues</p>
       ) : (
-        <div className="flex flex-wrap gap-8 justify-center">
+        <div className="flex flex-wrap gap-8 px-4 justify-center pt-10">
           {filteredVenues.map((venue) => (
             <VenueCard venue={venue} key={venue.id} />
           ))}
