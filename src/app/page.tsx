@@ -14,15 +14,20 @@ export default async function Venues({ searchParams }: Props) {
   const filteredVenues = guestCount
     ? venues.filter((venue) => venue.maxGuests >= guestCount)
     : venues;
+
   return (
     <div className="px-4">
       <h1>Find your next stay</h1>
       <VenueSearchBar />
-      <div className="flex flex-wrap gap-8 justify-center">
-        {filteredVenues.map((venue) => (
-          <VenueCard venue={venue} key={venue.id} />
-        ))}
-      </div>
+      {filteredVenues.length === 0 ? (
+        <p>No venues</p>
+      ) : (
+        <div className="flex flex-wrap gap-8 justify-center">
+          {filteredVenues.map((venue) => (
+            <VenueCard venue={venue} key={venue.id} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
