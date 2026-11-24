@@ -13,3 +13,18 @@ export async function fetchVenues(): Promise<Venue[]> {
 
   return venues;
 }
+
+export async function searchVenues(query: string): Promise<Venue[]> {
+  const response = await fetch(
+    `${BASE_URL}/holidaze/venues/search?q=${encodeURIComponent(query)}`
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to search for venue");
+  }
+
+  const result: VenuesResponse = await response.json();
+  const venues = result.data;
+
+  return venues;
+}
