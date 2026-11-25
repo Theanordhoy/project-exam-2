@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Venue } from "@/app/types/venues";
 import { MapPin, ImageOff, Star } from "lucide-react";
+import { getLocationText } from "@/app/lib/utils";
 
 type VenueCardProps = {
   venue: Venue;
@@ -9,9 +10,7 @@ type VenueCardProps = {
 export function VenueCard({ venue }: VenueCardProps) {
   const src = venue.media[0]?.url;
   const alt = venue.media[0]?.alt;
-  const city = venue.location.city;
-  const country = venue.location.country;
-  const place = [city, country].filter((location) => location).join(", ");
+  const place = getLocationText(venue.location);
   const stars = [1, 2, 3, 4, 5];
 
   return (
