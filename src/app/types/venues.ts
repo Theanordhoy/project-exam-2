@@ -31,3 +31,7 @@ export interface Venue {
 export interface VenuesResponse {
   data: Venue[];
 }
+
+export interface VenueResponse {
+  data: Venue;
+}
