@@ -1,7 +1,8 @@
 import Link from "next/link";
 import type { Venue } from "@/app/types/venues";
-import { MapPin, ImageOff, Star } from "lucide-react";
+import { MapPin, ImageOff } from "lucide-react";
 import { getLocationText } from "@/app/lib/utils";
+import { StarRating } from "@/app/components/ui/StarRating";
 
 type VenueCardProps = {
   venue: Venue;
@@ -11,7 +12,6 @@ export function VenueCard({ venue }: VenueCardProps) {
   const src = venue.media[0]?.url;
   const alt = venue.media[0]?.alt;
   const place = getLocationText(venue.location);
-  const stars = [1, 2, 3, 4, 5];
 
   return (
     <Link
@@ -33,16 +33,8 @@ export function VenueCard({ venue }: VenueCardProps) {
       </div>
       <div className="flex flex-col gap-1.5 mx-4 my-3 text-sm wrap-break-word">
         <div className="sm:flex sm:flex-row-reverse sm:justify-between sm:items-center">
-          <div className="flex items-center justify-end gap-1 text-primary mb-1.5 sm:mb-0 shrink-0">
-            <p className="sr-only">Rated {venue.rating} out of 5</p>
-            {stars.map((star) => (
-              <Star
-                key={star}
-                fill={star <= venue.rating ? "currentColor" : "none"}
-                size={14}
-                aria-hidden="true"
-              />
-            ))}
+          <div className="flex justify-end mb-1.5 sm:mb-0 shrink-0">
+            <StarRating rating={venue.rating} />
           </div>
           {place && (
             <div className="flex gap-1 items-center min-w-0">
