@@ -31,7 +31,7 @@ export async function searchVenues(query: string): Promise<Venue[]> {
 
 export async function fetchVenueById(id: string): Promise<Venue> {
   const response = await fetch(
-    `${BASE_URL}/holidaze/venues/${encodeURIComponent(id)}`
+    `${BASE_URL}/holidaze/venues/${encodeURIComponent(id)}?_bookings=true`
   );
 
   if (!response.ok) {

@@ -26,6 +26,7 @@ export interface Venue {
     lat: number;
     lng: number;
   };
+  bookings?: Booking[];
 }
 
 export interface VenuesResponse {
@@ -34,4 +35,13 @@ export interface VenuesResponse {
 
 export interface VenueResponse {
   data: Venue;
+}
+
+export interface Booking {
+  id: string;
+  dateFrom: string;
+  dateTo: string;
+  guests: number;
+  created: string;
+  updated: string;
 }
