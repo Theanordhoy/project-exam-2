@@ -38,3 +38,8 @@ export async function getProfile(): Promise<SessionProfile | null> {
     return null;
   }
 }
+
+export async function getAccessToken(): Promise<string | null> {
+  const cookieStore = await cookies();
+  return cookieStore.get(COOKIE_ACCESS_TOKEN)?.value ?? null;
+}
