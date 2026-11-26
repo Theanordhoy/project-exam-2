@@ -5,6 +5,7 @@ import { StarRating } from "@/app/components/ui/StarRating";
 import { Facilities } from "@/app/components/features/VenueFacilities";
 import { VenueImages } from "@/app/components/features/VenueImages";
 import { BookingForm } from "@/app/components/features/BookingForm";
+import { getProfile } from "@/app/lib/session";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -14,6 +15,9 @@ export default async function SingleVenue({ params }: Props) {
   const { id } = await params;
   const venue = await fetchVenueById(id);
   const place = getLocationText(venue.location);
+  const profile = await getProfile();
+  const isLoggedIn = !!profile;
+  const isVenueManager = profile?.venueManager ?? false;
 
   return (
     <div className="bg-white max-w-4xl mx-auto p-8 rounded-lg">
@@ -46,6 +50,8 @@ export default async function SingleVenue({ params }: Props) {
           bookings={venue.bookings ?? []}
           maxGuests={venue.maxGuests}
           venueId={venue.id}
+          isLoggedIn={isLoggedIn}
+          isVenueManager={isVenueManager}
         />
       </div>
     </div>
