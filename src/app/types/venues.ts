@@ -1,3 +1,5 @@
+import type { Booking } from "@/app/types/bookings";
+
 export interface Venue {
   id: string;
   name: string;
@@ -35,13 +37,4 @@ export interface VenuesResponse {
 
 export interface VenueResponse {
   data: Venue;
-}
-
-export interface Booking {
-  id: string;
-  dateFrom: string;
-  dateTo: string;
-  guests: number;
-  created: string;
-  updated: string;
 }

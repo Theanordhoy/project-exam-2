@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { DayPicker, type DateRange } from "@daypicker/react";
 import "@daypicker/react/style.css";
-import type { Booking } from "@/app/types/venues";
+import type { Booking } from "@/app/types/bookings";
 
 type VenueCalendarProps = {
   bookings: Booking[];
