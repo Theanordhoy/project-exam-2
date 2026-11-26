@@ -19,21 +19,37 @@ export function BookingForm({
 }: BookingFormProps) {
   const [selected, setSelected] = useState<DateRange | undefined>();
   const [guests, setGuests] = useState(1);
+  const [formError, setFormError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
 
   async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (isLoading) return;
+
+    setFormError("");
+    setSuccessMessage("");
 
     if (!selected?.from || !selected?.to) {
+      setFormError("Pick a date");
       return;
     }
 
+    setIsLoading(true);
     const result = await bookVenue({
       dateFrom: selected.from.toISOString(),
       dateTo: selected.to.toISOString(),
       guests: guests,
       venueId: venueId,
     });
-    console.log(result);
+
+    if (result?.error) {
+      setFormError(result.error);
+    } else {
+      setSuccessMessage("Venue is booked");
+      setSelected(undefined);
+    }
+    setIsLoading(false);
   }
 
   return (
@@ -52,8 +68,29 @@ export function BookingForm({
         value={guests}
         onChange={(e) => setGuests(Number(e.target.value))}
       />
-      <button type="submit" className="cursor-pointer">
-        Book now
+      {formError && (
+        <p
+          role="alert"
+          className="rounded-md px-3 py-2 text-sm text-error-text bg-error-bg"
+        >
+          {formError}
+        </p>
+      )}
+      {successMessage && (
+        <p
+          role="status"
+          className="rounded-md px-3 py-2 text-sm text-success-text bg-success-bg"
+        >
+          {successMessage}
+        </p>
+      )}
+      <button
+        type="submit"
+        disabled={isLoading}
+        aria-busy={isLoading}
+        className="cursor-pointer"
+      >
+        {isLoading ? "Booking..." : "Book now"}
       </button>
     </form>
   );

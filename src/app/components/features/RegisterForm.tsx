@@ -132,7 +132,7 @@ export function RegisterForm() {
         {successMessage && (
           <p
             role="status"
-            className="rounded-md px-3 py-2 text-sm text-green-700"
+            className="rounded-md px-3 py-2 text-sm text-success-text"
           >
             {successMessage}
           </p>
