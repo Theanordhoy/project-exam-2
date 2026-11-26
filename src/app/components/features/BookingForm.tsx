@@ -58,12 +58,18 @@ export function BookingForm({
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <VenueCalendar
-        bookings={bookings}
-        selected={selected}
-        onSelect={setSelected}
-      />
+    <form onSubmit={handleSubmit} className="bg-sage rounded-lg p-4 max-w-sm">
+      <div className="mx-auto w-fit ">
+        <h2 className="text-primary font-sans text-xl font-semibold">
+          Book this venue
+        </h2>
+        <VenueCalendar
+          bookings={bookings}
+          selected={selected}
+          onSelect={setSelected}
+        />
+      </div>
+
       {!isLoggedIn && <Link href="/login">Log in to book</Link>}
       {isLoggedIn && isVenueManager && (
         <p>
@@ -72,20 +78,25 @@ export function BookingForm({
         </p>
       )}
       {isLoggedIn && !isVenueManager && (
-        <div>
-          <label htmlFor="guests">Enter guests</label>
-          <input
-            type="number"
-            id="guests"
-            min={1}
-            max={maxGuests}
-            value={guests}
-            onChange={(e) => setGuests(Number(e.target.value))}
-          />
+        <div className="flex flex-col gap-3 my-4">
+          <div className="flex items-center gap-2 border rounded-lg px-2 bg-white shadow-md">
+            <label htmlFor="guests" className="shrink-0">
+              Enter guests
+            </label>
+            <input
+              type="number"
+              id="guests"
+              min={1}
+              max={maxGuests}
+              value={guests}
+              onChange={(e) => setGuests(Number(e.target.value))}
+              className="border-l p-2 w-full  focus:outline-primary "
+            />
+          </div>
           {formError && (
             <p
               role="alert"
-              className="rounded-md px-3 py-2 text-sm text-error-text bg-error-bg"
+              className="rounded-md px-3 py-2 text-sm text-error-text bg-error-bg border border:error-text"
             >
               {formError}
             </p>
@@ -93,7 +104,7 @@ export function BookingForm({
           {successMessage && (
             <p
               role="status"
-              className="rounded-md px-3 py-2 text-sm text-success-text bg-success-bg"
+              className="rounded-md px-3 py-2 text-sm text-success-text bg-success-bg border border:success-text"
             >
               {successMessage}
             </p>
@@ -102,7 +113,7 @@ export function BookingForm({
             type="submit"
             disabled={isLoading}
             aria-busy={isLoading}
-            className="cursor-pointer"
+            className="cursor-pointer bg-primary text-white text-lg font-semibold p-2 rounded-lg shadow-md hover:bg-primary-hover"
           >
             {isLoading ? "Booking..." : "Book now"}
           </button>
