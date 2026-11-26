@@ -4,7 +4,7 @@ import { getLocationText } from "@/app/lib/utils";
 import { StarRating } from "@/app/components/ui/StarRating";
 import { Facilities } from "@/app/components/features/VenueFacilities";
 import { VenueImages } from "@/app/components/features/VenueImages";
-import { VenueCalendar } from "@/app/components/features/VenueCalendar";
+import { BookingForm } from "@/app/components/features/BookingForm";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -42,7 +42,11 @@ export default async function SingleVenue({ params }: Props) {
         <Facilities facilities={venue.meta} />
       </div>
       <div>
-        <VenueCalendar bookings={venue.bookings ?? []} />
+        <BookingForm
+          bookings={venue.bookings ?? []}
+          maxGuests={venue.maxGuests}
+          venueId={venue.id}
+        />
       </div>
     </div>
   );
