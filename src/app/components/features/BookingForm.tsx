@@ -58,7 +58,10 @@ export function BookingForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-sage rounded-lg p-4 max-w-sm">
+    <form
+      onSubmit={handleSubmit}
+      className="bg-sage rounded-lg p-4 max-w-sm shadow-md"
+    >
       <div className="mx-auto w-fit ">
         <h2 className="text-primary font-sans text-xl font-semibold">
           Book this venue
@@ -70,9 +73,16 @@ export function BookingForm({
         />
       </div>
 
-      {!isLoggedIn && <Link href="/login">Log in to book</Link>}
+      {!isLoggedIn && (
+        <Link
+          href="/login"
+          className="flex justify-center cursor-pointer bg-primary text-white text-lg font-semibold p-2 rounded-lg shadow-md hover:bg-primary-hover my-4"
+        >
+          Log in to book
+        </Link>
+      )}
       {isLoggedIn && isVenueManager && (
-        <p>
+        <p className="font-semibold p-2 my-2 rounded-lg">
           Venue manager accounts cannot book venues. Log out and register as a
           customer to make a booking.
         </p>
