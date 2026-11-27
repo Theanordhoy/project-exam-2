@@ -1,5 +1,6 @@
 import { BASE_URL } from "@/app/lib/config";
 import type { BookingRequest, Booking } from "@/app/types/bookings";
+import { getHeaders } from "@/app/lib/api";
 
 export async function createBooking(
   booking: BookingRequest,
@@ -8,11 +9,7 @@ export async function createBooking(
 ): Promise<Booking> {
   const response = await fetch(`${BASE_URL}/holidaze/bookings`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${accessToken}`,
-      "X-Noroff-API-Key": apiKey,
-    },
+    headers: getHeaders(accessToken, apiKey),
     body: JSON.stringify(booking),
   });
 
