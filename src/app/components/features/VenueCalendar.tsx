@@ -34,7 +34,7 @@ export function VenueCalendar({
         onSelect={onSelect}
         classNames={{
           chevron: `${defaultClassNames.chevron} fill-primary`,
-          root: `${defaultClassNames.root} bg-white rounded-lg p-2 [--rdp-range_middle-background-color:var(--color-sage)]`,
+          root: `${defaultClassNames.root} bg-white rounded-lg p-2 md:p-4 [--rdp-range_middle-background-color:var(--color-sage)]`,
           selected: `${defaultClassNames.selected} [&>button]:border-primary`,
           range_start: `${defaultClassNames.range_start} [&>button]:bg-primary [&>button]:border-primary`,
           range_end: `${defaultClassNames.range_end} [&>button]:bg-primary [&>button]:border-primary`,
