@@ -36,7 +36,7 @@ export function BookingForm({
     setSuccessMessage("");
 
     if (!selected?.from || !selected?.to) {
-      setFormError("Pick a date");
+      setFormError("Select check-in and check-out dates");
       return;
     }
 
@@ -60,10 +60,10 @@ export function BookingForm({
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-sage rounded-lg p-4 max-w-sm shadow-md"
+      className="bg-sage rounded-lg py-2 sm:p-4 max-w-sm shadow-md"
     >
       <div className="mx-auto w-fit ">
-        <h2 className="text-primary font-sans text-xl font-semibold">
+        <h2 className="text-primary font-sans text-xl font-semibold mb-1">
           Book this venue
         </h2>
         <VenueCalendar
@@ -106,7 +106,7 @@ export function BookingForm({
           {formError && (
             <p
               role="alert"
-              className="rounded-md px-3 py-2 text-sm text-error-text bg-error-bg border border:error-text"
+              className="rounded-md px-3 py-2 text-sm text-error-text bg-white border border:error-text"
             >
               {formError}
             </p>
@@ -114,7 +114,7 @@ export function BookingForm({
           {successMessage && (
             <p
               role="status"
-              className="rounded-md px-3 py-2 text-sm text-success-text bg-success-bg border border:success-text"
+              className="rounded-md px-3 py-2 text-sm text-success-text bg-white border border:success-text"
             >
               {successMessage}
             </p>

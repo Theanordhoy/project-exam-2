@@ -1,7 +1,11 @@
 "use client";
 
-import { DayPicker, type DateRange } from "@daypicker/react";
-import "@daypicker/react/style.css";
+import {
+  DayPicker,
+  type DateRange,
+  getDefaultClassNames,
+} from "@daypicker/react";
+
 import type { Booking } from "@/app/types/bookings";
 
 type VenueCalendarProps = {
@@ -19,6 +23,7 @@ export function VenueCalendar({
     from: new Date(booking.dateFrom),
     to: new Date(booking.dateTo),
   }));
+  const defaultClassNames = getDefaultClassNames();
 
   return (
     <div>
@@ -27,6 +32,13 @@ export function VenueCalendar({
         min={1}
         selected={selected}
         onSelect={onSelect}
+        classNames={{
+          chevron: `${defaultClassNames.chevron} fill-primary`,
+          root: `${defaultClassNames.root} bg-white rounded-lg p-2 [--rdp-range_middle-background-color:var(--color-sage)]`,
+          selected: `${defaultClassNames.selected} [&>button]:border-primary`,
+          range_start: `${defaultClassNames.range_start} [&>button]:bg-primary [&>button]:border-primary`,
+          range_end: `${defaultClassNames.range_end} [&>button]:bg-primary [&>button]:border-primary`,
+        }}
         disabled={[
           {
             before: new Date(),

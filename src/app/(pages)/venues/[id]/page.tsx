@@ -37,11 +37,14 @@ export default async function SingleVenue({ params }: Props) {
               <p>{place}</p>
             </div>
           )}
-          <div className="flex items-center gap-6 my-4">
+          <div className="flex items-center gap-4 sm:gap-6 my-4 flex-wrap">
+            <p>
+              <span className="font-semibold">{venue.price} NOK</span>/night
+            </p>
+            <StarRating rating={venue.rating} />
             <p className="bg-forest-100 py-1 px-4 rounded-lg">
               {venue.maxGuests} guests
             </p>
-            <StarRating rating={venue.rating} />
           </div>
         </div>
         <div className="md:flex md:gap-4">
